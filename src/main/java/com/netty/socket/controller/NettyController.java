@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @author lx
  * @date 2022/9/24 19:53
  */
-@RequestMapping("/netty")
 @RestController
+@RequestMapping("/netty")
 public class NettyController {
 
 
