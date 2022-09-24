@@ -11,6 +11,7 @@ public class NettyServerApplication {
 
     public static void main(String[] args) {
         new SpringApplicationBuilder(NettyServerApplication.class).run(args);
+        new Thread(new NettyListener()).start();
         NettyPoolServer.getSingle().run();
     }
 }

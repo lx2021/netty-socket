@@ -26,19 +26,30 @@ public class NettyClient {
                 .channel(NioSocketChannel.class)
                 .handler(new NettyClientInitializer());
 
+        connect(bootstrap);
+        group.shutdownGracefully();
+    }
+
+    /**
+     * 连接服务端
+     *
+     * @param bootstrap
+     * @throws InterruptedException
+     */
+    public void connect(Bootstrap bootstrap) {
         try {
+
             ChannelFuture future = bootstrap.connect("127.0.0.1", 8091).sync();
             logger.info("客户端成功....");
             // 设置attr
-            future.channel().attr(AttributeKey.valueOf("key")).set("sssss");
+            future.channel().attr(AttributeKey.valueOf("name")).set("koi");
             //发送消息
-            //future.channel().writeAndFlush(sendMsg);
+//            future.channel().writeAndFlush("hello");
             // 等待连接被关闭
             future.channel().closeFuture().sync();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            group.shutdownGracefully();
+        } catch (Exception e) {
+            System.out.println("连接服务端失败，正在重试");
+            connect(bootstrap);
         }
     }
 }

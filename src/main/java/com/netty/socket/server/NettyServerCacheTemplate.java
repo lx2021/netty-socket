@@ -31,6 +31,14 @@ public class NettyServerCacheTemplate {
     }
 
     /**
+     * 获取所有的channelmap
+     * @return
+     */
+    public Map<String, Channel> getAllChannelMap(){
+        return channelMap;
+    }
+
+    /**
      * 删除存储池实例
      */
     public void deleteChannel(Channel channel) {
