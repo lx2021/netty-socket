@@ -11,6 +11,10 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 @SpringBootApplication
 public class Application {
 
+    static {
+        System.getProperties().setProperty("spring.config.location", "classpath:netty/application.properties");
+    }
+
     public static void main(String[] args) {
         new SpringApplicationBuilder(NettyServerApplication.class).run(args);
     }

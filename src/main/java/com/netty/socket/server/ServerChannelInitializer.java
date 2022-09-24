@@ -19,6 +19,6 @@ public class ServerChannelInitializer extends ChannelInitializer<SocketChannel> 
         socketChannel.pipeline().addLast("encoder", new StringEncoder(CharsetUtil.UTF_8));
         socketChannel.pipeline().addLast(new NettyServerHandler());
         //一分钟内没有数据写入则关闭连接
-        socketChannel.pipeline().addLast(new ReadTimeoutHandler(60));
+        socketChannel.pipeline().addLast(new ReadTimeoutHandler(7200));
     }
 }

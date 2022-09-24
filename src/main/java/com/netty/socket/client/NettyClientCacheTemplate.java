@@ -59,22 +59,6 @@ public class NettyClientCacheTemplate {
         return new ArrayList<>(channelMap.keySet());
     }
 
-    /**
-     * 想指定链接发送数据
-     */
-    public static String sendMsg(String msg, Channel channel) {
-        try {
-            if (channel.isActive()) {
-                channel.write(msg);
-                channel.flush();
-                return "success";
-            } else {
-                return "不在线";
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "error";
-        }
-    }
+
 
 }
