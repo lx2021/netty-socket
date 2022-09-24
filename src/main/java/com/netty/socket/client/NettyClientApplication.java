@@ -1,4 +1,4 @@
-package com.netty.socket;
+package com.netty.socket.client;
 
 import com.netty.socket.server.NettyServerApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,12 +6,12 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 /**
  * @author lx
- * @date 2022/9/24 15:51
  */
 @SpringBootApplication
-public class Application {
+public class NettyClientApplication {
 
     public static void main(String[] args) {
         new SpringApplicationBuilder(NettyServerApplication.class).run(args);
+        new NettyClient().start();
     }
 }

@@ -1,2 +1,4 @@
-server:
-  port: 8080
+#关闭http服务器功能
+spring:
+  main:
+    web-application-type: none
