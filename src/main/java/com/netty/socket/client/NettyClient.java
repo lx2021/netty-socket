@@ -44,7 +44,7 @@ public class NettyClient {
             // 设置attr
             future.channel().attr(AttributeKey.valueOf("name")).set("koi");
             //发送消息
-//            future.channel().writeAndFlush("hello");
+            //future.channel().writeAndFlush("connect");
             // 等待连接被关闭
             future.channel().closeFuture().sync();
         } catch (Exception e) {
